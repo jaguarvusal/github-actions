@@ -36,30 +36,22 @@ This project is licensed under the MIT License.
 
 ## Installation  
 
-**Clone the repository:**  
-```bash
+# Clone the repository:
 git clone https://github.com/your-username/github-actions-cicd.git
-Navigate into the project directory:
 
-bash
-Copy
-Edit
+# Navigate into the project directory:
 cd github-actions-cicd
-Install dependencies:
 
-bash
-Copy
-Edit
+# Install dependencies:
 npm install
-Set up Render deployment token:
-Obtain your deployment token from Render and add it to your deploy.yml file as your-deploy-token-here.
 
-Technologies Used
-GitHub Actions (CI/CD)
+# Set up Render deployment token:
+# Obtain your deployment token from Render and add it to your deploy.yml file as your-deploy-token-here.
 
-Cypress (Testing)
+# Technologies Used:
+# GitHub Actions (CI/CD)
+# Cypress (Testing)
+# Render (Deployment Platform)
 
-Render (Deployment Platform)
-
-License
-This project is licensed under the MIT License.
+# License:
+# This project is licensed under the MIT License.
