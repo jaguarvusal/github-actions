@@ -1,7 +1,7 @@
 # CI/CD Deployment Setup  
 **GitHub Actions for Cypress Tests & Render Deployment**
 
-This repository demonstrates a CI/CD pipeline using GitHub Actions to automate testing and deployment. Cypress component tests run automatically on every Pull Request to the `develop` branch. When changes are merged from `develop` to `main`, the application is automatically deployed to [Render]https://github-actions-3asc.onrender.com.
+This repository demonstrates a CI/CD pipeline using GitHub Actions to automate testing and deployment. Cypress component tests run automatically on every Pull Request to the `develop` branch. When changes are merged from `develop` to `main`, the application is automatically deployed to https://github-actions-3asc.onrender.com.
 
 <img width="1426" alt="Screenshot 2025-05-14 at 12 18 46 PM" src="https://github.com/user-attachments/assets/1e92a4f8-f4ff-419f-b829-435b343ae12e" />
 
