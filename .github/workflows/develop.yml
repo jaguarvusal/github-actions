@@ -18,18 +18,16 @@ jobs:
         with:
           node-version: 21.x
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install Dependencies (Root + Client + Server)
+        run: npm run install
 
-      - name: Build Project
+      - name: Build Project (Client + Server)
         run: npm run build
 
-      # Start backend server in background (in server directory)
-      - name: Start Backend Server
-        run: nohup npm run start > server.log 2>&1 &
+      - name: Start Backend Server (from dist)
+        run: npm run start &
         working-directory: ./server
 
-      # Wait for backend server to be ready
       - name: Wait for Backend Server
         run: npx wait-on http://localhost:3001
 
