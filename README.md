@@ -1,8 +1,10 @@
-# GitHub Actions CI/CD Setup  
-**Live Demo: N/A (CI/CD Pipeline)**
+# CI/CD Deployment Setup  
+**GitHub Actions for Cypress Tests & Render Deployment**
 
-This project sets up a Continuous Integration and Continuous Deployment (CI/CD) pipeline using GitHub Actions for automated testing and deployment. The pipeline runs component tests with Cypress when a Pull Request (PR) is made to the `develop` branch and automatically deploys the application to Render when changes are merged from `develop` to the `main` branch. The project includes two separate GitHub Actions YAML files: one for testing and one for deployment.  
-<img width="1430" alt="CI/CD Pipeline Screenshot" src="https://github.com/user-attachments/assets/ci-cd-pipeline-image" />
+This repository demonstrates a CI/CD pipeline using GitHub Actions to automate testing and deployment. Cypress component tests run automatically on every Pull Request to the `develop` branch. When changes are merged from `develop` to `main`, the application is automatically deployed to [Render]https://github-actions-3asc.onrender.com.
+
+<img width="1426" alt="Screenshot 2025-05-14 at 12 18 46 PM" src="https://github.com/user-attachments/assets/1e92a4f8-f4ff-419f-b829-435b343ae12e" />
+
 
 ---
 
@@ -15,43 +17,69 @@ This project is licensed under the MIT License.
 - [Features](#features)  
 - [Installation](#installation)  
 - [Technologies Used](#technologies-used)  
+- [CI/CD Configuration](#cicd-configuration)  
 - [License](#license)  
 
 ---
 
 ## Features  
 
-### GitHub Actions for Testing:  
-- **Cypress Component Testing**: 
-  - Runs automated component tests using Cypress.
-  - Executes when a Pull Request is made to the `develop` branch.
-  - Ensures that all components are working as expected before merging changes.
+### GitHub Actions Test Workflow  
+- Triggered on Pull Requests to the `develop` branch  
+- Runs Cypress component tests  
+- Ensures code quality and prevents breaking changes  
 
-### GitHub Actions for Deployment:  
-- **Automated Deployment to Render**: 
-  - Deploys the app to Render when changes are merged from `develop` to `main`.
-  - Ensures a smooth, continuous deployment process.
+### GitHub Actions Deploy Workflow  
+- Triggered when `develop` is merged into `main`  
+- Deploys the latest code to Render automatically  
+- Uses Render Deploy Hook with a secure API key  
 
 ---
 
 ## Installation  
 
-### Clone the repository:
-git clone https://github.com/your-username/github-actions-cicd.git
+**Clone the repository:**  
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+```
 
-### Navigate into the project directory:
-cd github-actions-cicd
+**Navigate into the project directory:**  
+```bash
+cd your-repo-name
+```
 
-### Install dependencies:
+**Install dependencies:**  
+```bash
 npm install
+```
 
-### Set up Render deployment token:
-### Obtain your deployment token from Render and add it to your deploy.yml file as your-deploy-token-here.
+**Set environment variables:**  
+Create a `.env` file in the root directory if required by your project.
 
-## Technologies Used:
-- GitHub Actions (CI/CD)
-- Cypress (Testing)
-- Render (Deployment Platform)
+---
 
-## License:
-### This project is licensed under the MIT License.
+## Technologies Used  
+
+- GitHub Actions (CI/CD)  
+- Cypress (Component Testing)  
+- Render (Hosting & Deployment)  
+- Node.js (Optional, depending on project)  
+
+---
+
+## CI/CD Configuration  
+
+### ✅ Test Workflow  
+Runs Cypress component tests on **Pull Requests to the `develop` branch**.
+
+---
+
+### 🚀 Deploy Workflow  
+Deploys to Render **when `develop` is merged into `main`**.
+
+> Add your Render Deploy hook to github repo secret.
+
+---
+
+## License  
+This project is licensed under the MIT License.
