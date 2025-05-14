@@ -1,0 +1,38 @@
+name: Lint and Test Workflow
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - staging
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up Node.js
+      - name: Use Node.js 21.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 21.x
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Run lint
+      - name: Run Lint
+        run: npm run lint
+
+      # Run build
+      - name: Run Build
+        run: npm run build
+
+      # Run tests
+      - name: Run Tests
+        run: npm test
