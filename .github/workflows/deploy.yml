@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy to Render
 
 on:
   push:
@@ -6,20 +6,24 @@ on:
       - main
 
 jobs:
-  ci:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
       # Checkout code
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      # Install dependencies and run tests
-      - name: Test
-        run: |
-          npm install
-          npm run test
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Run tests
+      - name: Run Tests
+        run: npm run test
 
       # Deploy to Render
-      - name: Deploy
+      - name: Deploy to Render
         env:
           DEPLOY_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
