@@ -1,4 +1,4 @@
-name: Deploy to Render
+name: 🚀 Deploy to Render
 
 on:
   push:
@@ -13,35 +13,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout code
-      - name: Checkout code
+      # 📦 Checkout code
+      - name: 📦 Checkout code
         uses: actions/checkout@v3
 
-      # Install dependencies
-      - name: Install Dependencies
+      # 🧱 Install dependencies
+      - name: 🧱 Install Dependencies
         run: npm install
 
-      # Install concurrently, wait-on, and http-server as devDependencies locally (no global install)
-      - name: Install concurrently, wait-on, and http-server locally
+      # 📦 Install concurrently, wait-on, and http-server as devDependencies locally (no global install)
+      - name: 📦 Install concurrently, wait-on, and http-server locally
         run: npm install --save-dev concurrently wait-on http-server
 
-      # Mock backend server on port 3001
-      - name: Mock Backend Server
+      # 🚦 Mock backend server on port 3001
+      - name: 🚦 Mock Backend Server
         run: npx http-server -p 3001 -c-1 --silent &
 
-      - name: Wait for Mock Backend Server
+      # 🕒 Wait for Mock Backend Server
+      - name: 🕒 Wait for Mock Backend Server
         run: npx wait-on http://localhost:3001
 
-      # Build project
-      - name: Build Project
+      # 🏗️ Build project
+      - name: 🏗️ Build Project
         run: npm run build
 
-      # Run Cypress Component Tests
-      - name: Run Cypress Component Tests
+      # 💪 Run Cypress Component Tests
+      - name: 💪 Run Cypress Component Tests
         run: npm run test-component
 
-      # Deploy to Render
-      - name: Deploy to Render
+      # 🚀 Deploy to Render
+      - name: 🚀 Deploy to Render
         env:
           DEPLOY_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
