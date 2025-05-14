@@ -1,4 +1,4 @@
-name: Test Workflow
+name: Component Tests
 
 on:
   pull_request:
@@ -6,28 +6,31 @@ on:
       - develop
 
 jobs:
-  test:
+  component-tests:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout code
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Set up Node.js
       - name: Use Node.js 21.x
         uses: actions/setup-node@v2
         with:
           node-version: 21.x
 
-      # Install dependencies
       - name: Install Dependencies
         run: npm install
 
-      # Run build
-      - name: Run Build
+      - name: Build Project
         run: npm run build
 
-      # Run tests
-      - name: Run Tests
-        run: npm run test
+      # Start backend server in background
+      - name: Start Backend Server
+        run: npm run start &
+
+      # Wait for backend server to be ready
+      - name: Wait for Backend Server
+        run: npx wait-on http://localhost:3001
+
+      - name: Run Cypress Component Tests
+        run: npm run test-component
