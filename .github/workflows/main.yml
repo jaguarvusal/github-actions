@@ -25,10 +25,13 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # Run build
-      - name: Run Build
-        run: npm run build
+      # Start the server
+      - name: Start Server
+        run: |
+          cd server
+          npm run watch &
+          sleep 10 # Wait for the server to start
 
-      # Run tests
-      - name: Run Tests
-        run: npm test
+      # Run Cypress tests
+      - name: Run Cypress Tests
+        run: npm run test
