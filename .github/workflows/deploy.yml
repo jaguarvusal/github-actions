@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -17,6 +20,17 @@ jobs:
       # Install dependencies
       - name: Install Dependencies
         run: npm install
+
+      # Install concurrently, wait-on, and http-server globally
+      - name: Install concurrently, wait-on, and http-server
+        run: npm install -g concurrently wait-on http-server
+
+      # Mock backend server on port 3001
+      - name: Mock Backend Server
+        run: npx http-server -p 3001 -c-1 --silent &
+
+      - name: Wait for Mock Backend Server
+        run: npx wait-on http://localhost:3001
 
       # Build project
       - name: Build Project
