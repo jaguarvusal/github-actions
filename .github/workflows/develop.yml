@@ -24,9 +24,10 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      # Start backend server in background
+      # Start backend server in background (in server directory)
       - name: Start Backend Server
-        run: npm run start &
+        run: nohup npm run start > server.log 2>&1 &
+        working-directory: ./server
 
       # Wait for backend server to be ready
       - name: Wait for Backend Server
