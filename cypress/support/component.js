@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 // ***********************************************************
 // This example support/component.js is processed and
 // loaded automatically before your test files.
@@ -21,6 +22,8 @@ import './commands'
 
 import { mount } from 'cypress/react18'
 
+// Add type declaration for the custom command
+// @ts-ignore
 Cypress.Commands.add('mount', mount)
 
 // Example use:
