@@ -42,5 +42,5 @@ jobs:
       - name: 🕒 Wait for Mock Backend Server
         run: npx wait-on http://localhost:3001
 
-      - name: ✅ Run Cypress Component Tests
+      - name: 💪 Run Cypress Component Tests
         run: npm run test-component
